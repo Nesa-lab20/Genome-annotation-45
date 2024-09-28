@@ -14,10 +14,31 @@ Answer: 30 amino acids * 3 bases per codon + 3 bases for the stop codon = 93 bas
 
 2. (2 points) Run prodigal on one of the genomes you have previously downloaded. Using command line tools, count how many genes were annotated (you can use any of the output formats for this but some are easier than others).
 
+Step 2: Run Prodigal on one of your genomes. For example:
 
+./prodigal -i genome.fasta -a proteins.faa -d nucleotides.fna -o prodigal_output.gbk
+
+Step 3: Count the number of genes annotated. You can use grep to count entries:
+
+grep -c '>' prodigal_output.gbk
 
 3. (2 points) Run prodigal on all of the genomes you have previously downloaded. Using command line tools, find which genome has the highest number of genes. Put all your code into a shell script, and put your code on the repository on Github where you keep your README with the solutions to this assignment (title:3-prodigal 14)
 
+Step 1: Create a shell script to run Prodigal on all genomes in a directory. (run_prodigal14.sh):
+
+#!/bin/bash
+for genome in /path/to/genomes/*.fasta; do
+    ./prodigal -i $genome -o $(basename $genome .fasta)_prodigal_output.gbk
+done
+
+Step 2: Use command-line tools to find which genome has the most genes:
+
+bash
+
+for file in *_prodigal_output.gbk; do
+    count=$(grep -c '>' $file)
+    echo "$file: $count genes"
+done | sort -k2,2nr | head -1
 
 4. (2 points) Annotate all genomes you have previously downloaded using prokka instead of prodigal. Using shell commands, count the number of coding sequences (CDS) annotated by Prokka. Are the total number of genes the same as they were with prodigal? What are the differences?
 
