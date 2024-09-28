@@ -7,8 +7,7 @@ Answer: The peptide sequence has 30 amino acids (excluding the stop codon).
 
 Additonally, how many bases are contained in the open reading frame of the DNA sequence encoding the amino acids (including the stop codon)?
 
-    Each amino acid is encoded by a codon (3 nucleotides), and the stop codon is also 3 nucleotides long.
-    So, for 30 amino acids plus the stop codon,calculate the total number of bases.
+Each amino acid is encoded by a codon (3 nucleotides), and the stop codon is also 3 nucleotides long. So, for 30 amino acids plus the stop codon,calculate the total number of bases.
 
 Answer: 30 amino acids * 3 bases per codon + 3 bases for the stop codon = 93 bases.
 
