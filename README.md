@@ -3,8 +3,13 @@
 
 # 1. 
 -If given the amino acid sequence "KVRMFTSELDIMLSVNG-PADQIKYFCRHWT*", what is the number of amino acids in the encoded peptide (not including the stop codon)?
+Create a new python file to formulate the code and then run it to get the outputs
+```
+nano HW3.py
+python HW3.py
 
-
+```
+The outputs are the following:
 ```markdown
 Answer: The peptide sequence has 30 amino acids (excluding the stop codon).
 ```
