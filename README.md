@@ -1,7 +1,7 @@
 # Genome-annotation-WEEK 4-5
 -Create a README in a Github repository with the answers.
 
-# 1. 
+# 1. AMINOACIDS
 -If given the amino acid sequence "KVRMFTSELDIMLSVNG-PADQIKYFCRHWT*", what is the number of amino acids in the encoded peptide (not including the stop codon)?    
 Additonally, how many bases are contained in the open reading frame of the DNA sequence encoding the amino acids (including the stop codon)?    
 Each amino acid is encoded by a codon (3 nucleotides), and the stop codon is also 3 nucleotides long. So, for 30 amino acids plus the stop codon,calculate the total number of bases.    
@@ -20,30 +20,38 @@ Number of bases in the open reading frame (including stop codon): 93
 
 # 2. Run prodigal on one of the genomes you have previously downloaded. Using command line tools, count how many genes were annotated (you can use any of the output formats for this but some are easier than others).
 
-Step 2: Run Prodigal on one of your genomes. For example:
+Step 2: Run Prodigal on one of your genomes. For example:GCA_000006825.1_ASM682v1_genomic.fna
 
-prodigal -i genome.fna -o genes.txt -a proteins.faa -f gff
+```
+module load prodigal 
+prodigal -i GCA_000006825.1_ASM682v1_genomic.fna -d genes_GCA_000006825.1.fna -o GCA_000006825.1.gbk 
+```
 
 Step 3: Count the number of genes annotated. You can use grep to count entries:
 
-grep -c '>' prodigal_output.gbk
+grep ">" genes_GCA_000006825.1.fna -c > genecounts.txt
 
-# 3. Run prodigal on all of the genomes you have previously downloaded. Using command line tools, find which genome has the highest number of genes. Put all your code into a shell script, and put your code on the repository on Github where you keep your README with the solutions to this assignment (title:3-prodigal 14)
+OUTPUT from genecounts.txt = 2032
 
-Step 1: Create a shell script to run Prodigal on all genomes in a directory. (run_prodigal14.sh):
 
-#!/bin/bash
-for genome in /path/to/genomes/*.fasta; do
-    ./prodigal -i $genome -o $(basename $genome .fasta)_prodigal_output.gbk
-done
+# 3. Run prodigal on all of the genomes you have previously downloaded. Using command line tools, find which genome has the highest number of genes. Put all your code into a shell script, and put your code on the repository on Github where you keep your README with the solutions to this assignment (title:prodigal_14)
+
+Step 1: Create a shell script to run Prodigal on all genomes in a directory. (Prodigalrun.sh):
 
 Step 2: Use command-line tools to find which genome has the most genes:
-
-
-for file in *_prodigal_output.gbk; do
-    count=$(grep -c '>' $file)
-    echo "$file: $count genes"
-done | sort -k2,2nr | head -1
+```
+module load prodigal
+nano Prodigalrun.sh
+chmod +x Prodigalrun.sh
+sbatch Prodigalrun.sh
+./Prodigalrun.sh
+git add Prodigalrun.sh
+git commit -m "Update script to save highest gene count result to a .txt file"
+git push
+```
+Genome with the highest number of genes:
+File: ncbi_dataset/data/GCA_000006745.1/GCA_000006745.1_ASM674v1_genomic.fna
+Number of genes: 3594
 
 # 4. Annotate all genomes you have previously downloaded using prokka instead of prodigal. Using shell commands, count the number of coding sequences (CDS) annotated by Prokka. Are the total number of genes the same as they were with prodigal? What are the differences?
 
