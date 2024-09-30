@@ -12,12 +12,15 @@ python HW3.py
 The outputs are the following:
 ```markdown
 Answer: The peptide sequence has 30 amino acids (excluding the stop codon).
-```
+
 Additonally, how many bases are contained in the open reading frame of the DNA sequence encoding the amino acids (including the stop codon)?
 
 Each amino acid is encoded by a codon (3 nucleotides), and the stop codon is also 3 nucleotides long. So, for 30 amino acids plus the stop codon,calculate the total number of bases.
-```
+
 Answer: 30 amino acids * 3 bases per codon + 3 bases for the stop codon = 93 bases.
+```markdown
+Number of amino acids (excluding stop codon): 30
+Number of bases in the open reading frame (including stop codon): 93
 ```
 
 # 2. Run prodigal on one of the genomes you have previously downloaded. Using command line tools, count how many genes were annotated (you can use any of the output formats for this but some are easier than others).
