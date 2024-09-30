@@ -11,7 +11,6 @@ Create a new python file to formulate the code and then run it to get the output
 ```
 nano HW3.py
 python HW3.py
-
 ```
 The outputs are the following:
 
@@ -24,7 +23,7 @@ Number of bases in the open reading frame (including stop codon): 93
 
 Step 2: Run Prodigal on one of your genomes. For example:
 
-./prodigal -i genome.fasta -a proteins.faa -d nucleotides.fna -o prodigal_output.gbk
+prodigal -i genome.fna -o genes.txt -a proteins.faa -f gff
 
 Step 3: Count the number of genes annotated. You can use grep to count entries:
 
@@ -41,7 +40,6 @@ done
 
 Step 2: Use command-line tools to find which genome has the most genes:
 
-bash
 
 for file in *_prodigal_output.gbk; do
     count=$(grep -c '>' $file)
