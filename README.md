@@ -4,7 +4,9 @@
 # 1. AMINOACIDS
 -If given the amino acid sequence "KVRMFTSELDIMLSVNG-PADQIKYFCRHWT*", what is the number of amino acids in the encoded peptide (not including the stop codon)?    
 Additonally, how many bases are contained in the open reading frame of the DNA sequence encoding the amino acids (including the stop codon)?    
-Each amino acid is encoded by a codon (3 nucleotides), and the stop codon is also 3 nucleotides long. So, for 30 amino acids plus the stop codon,calculate the total number of bases.    
+Each amino acid is encoded by a codon (3 nucleotides), and the stop codon is also 3 nucleotides long. So, for 30 amino acids plus the stop codon,calculate the total number of bases.  
+
+**FOR THE CODES YOU NEED TO CHANGE THE FILE PATH**
 
 ---Create a new python file to formulate the code and then run it to get the outputs    
 ```
