@@ -45,9 +45,7 @@ nano Prodigalrun.sh
 chmod +x Prodigalrun.sh
 sbatch Prodigalrun.sh
 ./Prodigalrun.sh
-git add Prodigalrun.sh
-git commit -m "Update script to save highest gene count result to a .txt file"
-git push
+
 ```
 Genome with the highest number of genes:
 File: ncbi_dataset/data/GCA_000006745.1/GCA_000006745.1_ASM674v1_genomic.fna
@@ -62,11 +60,17 @@ chmod +x counts_cds.sh
 
 ```
 # Are the total number of genes the same as they were with prodigal? What are the differences?
-PRODIGAL=Number of genes: 3594
-PROKKA= 
+```
+PRODIGAL=Number of genes: from 897 to 3594
+PROKKA= Number of coding sequences (CDS): from 892 to 3589
+Not the same, the differences are that the counts from Prokka are lower, this is because Prodigal can include potential genes. But Prokka focuses on the actual and real sequences, deleting anything else from the count.
+```
 
 # 5. Extract and list all unique gene names annotated by Prokka using shell commands. Provide the command you used and the first five gene names from the list.
-
+```
+cd prokka_output/
+grep -h "ID=" */*.gff | sed 's/.*ID=//; s/;.*//' | sort -u > unique_g_names.txt
+head -n 5 unique_g_names.txt
 
 # BONUS 6. Your task is to identify CRISPR arrays in the bacterial genomes you downloaded. Your first task is to find a tool that can be used for this task — search on Github for the right tool (hint: a name of a popular tool is CRISPRCasFinder but there are others, such as CasFinder or CRISPRFinder). Once you have found a tool, install it in your home directory. Then run the tool on your genomes. How many CRISPR arrays did you find?
 Output the number of CRISPR arrays for each species and write the results into a 2 column file where a tab separates columns.
