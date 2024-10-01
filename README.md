@@ -59,6 +59,24 @@ chmod +x counts_cds.sh
 ./counts_cds.sh
 
 ```
+ANSWER: counts_cds.txt
+```
+GCA_000008525.1_ASM852v1_genomic: 1577 CDS
+GCA_000008605.1_ASM860v1_genomic: 1001 CDS
+GCA_000008625.1_ASM862v1_genomic: 1771 CDS
+GCA_000008745.1_ASM874v1_genomic: 1058 CDS
+GCA_000027305.1_ASM2730v1_genomic: 1748 CDS
+GCA_000006745.1_ASM674v1_genomic: 3589 CDS
+GCA_000008545.1_ASM854v1_genomic: 1861 CDS
+GCA_000008565.1_ASM856v1_genomic: 3245 CDS
+GCA_000008725.1_ASM872v1_genomic: 892 CDS
+GCA_000008785.1_ASM878v1_genomic: 1504 CDS
+GCA_000006825.1_ASM682v1_genomic: 2028 CDS
+GCA_000006865.1_ASM686v1_genomic: 2383 CDS
+GCA_000007125.1_ASM712v1_genomic: 3150 CDS
+GCA_000091085.2_ASM9108v2_genomic: 1056 CDS
+```
+
 # Are the total number of genes the same as they were with prodigal? What are the differences?
 ```
 PRODIGAL=Number of genes: from 897 to 3594
@@ -71,8 +89,18 @@ Not the same, the differences are that the counts from Prokka are lower, this is
 cd prokka_output/
 grep -h "ID=" */*.gff | sed 's/.*ID=//; s/;.*//' | sort -u > unique_g_names.txt
 head -n 5 unique_g_names.txt
+```
+OUTPUT
+```
+AFMNAGNA_00001
+AFMNAGNA_00002
+AFMNAGNA_00003
+AFMNAGNA_00004
+AFMNAGNA_00005
+```
+
 
 # BONUS 6. Your task is to identify CRISPR arrays in the bacterial genomes you downloaded. Your first task is to find a tool that can be used for this task — search on Github for the right tool (hint: a name of a popular tool is CRISPRCasFinder but there are others, such as CasFinder or CRISPRFinder). Once you have found a tool, install it in your home directory. Then run the tool on your genomes. How many CRISPR arrays did you find?
 Output the number of CRISPR arrays for each species and write the results into a 2 column file where a tab separates columns.
 
-
+---
