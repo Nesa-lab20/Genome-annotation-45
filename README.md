@@ -34,7 +34,7 @@ grep ">" genes_GCA_000006825.1.fna -c > genecounts.txt
 OUTPUT from genecounts.txt = 2032
 
 
-# 3. Run prodigal on all of the genomes you have previously downloaded. Using command line tools, find which genome has the highest number of genes. Put all your code into a shell script, and put your code on the repository on Github where you keep your README with the solutions to this assignment (title:prodigal_14)
+# 3. Run prodigal on all of the genomes you have previously downloaded. Using command line tools, find which genome has the highest number of genes. Put all your code into a shell script, and put your code on the repository on Github where you keep your README with the solutions to this assignment (title:Prodigalrun.sh)
 
 Step 1: Create a shell script to run Prodigal on all genomes in a directory. (Prodigalrun.sh):
 
