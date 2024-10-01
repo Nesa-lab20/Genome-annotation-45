@@ -53,8 +53,17 @@ Genome with the highest number of genes:
 File: ncbi_dataset/data/GCA_000006745.1/GCA_000006745.1_ASM674v1_genomic.fna
 Number of genes: 3594
 
-# 4. Annotate all genomes you have previously downloaded using prokka instead of prodigal. Using shell commands, count the number of coding sequences (CDS) annotated by Prokka. Are the total number of genes the same as they were with prodigal? What are the differences?
+# 4. Annotate all genomes you have previously downloaded using prokka instead of prodigal. Using shell commands, count the number of coding sequences (CDS) annotated by Prokka. 
+```
+module load prokka
+nano counts_cds.sh
+chmod +x counts_cds.sh
+./counts_cds.sh
 
+```
+# Are the total number of genes the same as they were with prodigal? What are the differences?
+PRODIGAL=Number of genes: 3594
+PROKKA= 
 
 # 5. Extract and list all unique gene names annotated by Prokka using shell commands. Provide the command you used and the first five gene names from the list.
 
