@@ -89,20 +89,16 @@ Not the same, the differences are that the counts from Prokka are lower, this is
 # 5. Extract and list all unique gene names annotated by Prokka using shell commands. Provide the command you used and the first five gene names from the list.
 ```
 cd prokka_output/
-grep -h "ID=" */*.gff | sed 's/.*ID=//; s/;.*//' | sort -u > unique_g_names.txt
+grep -h "gene=" */*.gff | sed 's/.*gene=//; s/;.*//' | sort -u > unique_g_names.txt
 head -n 5 unique_g_names.txt
+
+
 ```
 OUTPUT
 ```
-AFMNAGNA_00001
-AFMNAGNA_00002
-AFMNAGNA_00003
-AFMNAGNA_00004
-AFMNAGNA_00005
+aaaT
+aaeA
+aaeA_1
+aaeA_2
+aaeB
 ```
-
-
-# BONUS 6. Your task is to identify CRISPR arrays in the bacterial genomes you downloaded. Your first task is to find a tool that can be used for this task — search on Github for the right tool (hint: a name of a popular tool is CRISPRCasFinder but there are others, such as CasFinder or CRISPRFinder). Once you have found a tool, install it in your home directory. Then run the tool on your genomes. How many CRISPR arrays did you find?
-Output the number of CRISPR arrays for each species and write the results into a 2 column file where a tab separates columns.
-
----
